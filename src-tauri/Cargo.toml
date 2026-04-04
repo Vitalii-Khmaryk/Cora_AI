@@ -1,0 +1,65 @@
+[package]
+name = "cora-ai"
+version = "0.1.0"
+description = "Cora AI — Local AI Gaming Assistant"
+authors = ["you"]
+edition = "2021"
+
+[lib]
+name = "cora_ai_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+# Tauri
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+
+# .env Configuration
+dotenvy = "0.15"
+
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Audio capture (microphone)
+cpal = "0.15"
+
+# WAV file encoding
+hound = "3.5"
+
+# Wake word detection (speech recognition)
+vosk = "0.2"
+
+# Global hotkey listener
+global-hotkey = "0.6"
+
+# HTTP client
+reqwest = { version = "0.12", features = ["json", "multipart", "stream"] }
+
+# Async stream utilities
+futures-util = "0.3"
+
+# Screen capture via DXGI
+xcap = "0.0.10"
+
+# Image encoding (JPEG for Ollama vision)
+image = "0.25"
+
+# Base64 encoding for screenshots
+base64 = "0.22"
+
+# Logging
+log = "0.4"
+env_logger = "0.11"
+
+# Error handling
+anyhow = "1"
+
+# Audio playback (TTS)
+rodio = "0.19.0"

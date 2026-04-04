@@ -1,0 +1,1 @@
+export type CoraState = "idle" | "listening" | "recording" | "transcribing" | "thinking" | "speaking";

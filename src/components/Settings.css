@@ -1,0 +1,123 @@
+.settings-container {
+    background: rgba(8, 7, 34, 0.85);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 30px;
+    width: 320px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    color: #e0e0e0;
+    font-family: inherit;
+    text-align: left;
+    margin: 20px auto;
+    position: relative;
+    z-index: 100;
+}
+
+.settings-container h2 {
+    color: #00ffff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.settings-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-group label {
+    margin-bottom: 8px;
+    font-size: 0.85em;
+    color: #00ffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.settings-group select {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(62, 54, 212, 0.8);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 1em;
+    outline: none;
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.settings-group select:focus {
+    box-shadow: 0 0 10px rgba(62, 54, 212, 0.8);
+    border-color: #00ffff;
+}
+
+.settings-group select option {
+    background: #080722;
+    color: #fff;
+}
+
+.settings-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+
+.settings-actions button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-cancel {
+    background: transparent;
+    color: #888;
+    border: 1px solid #444;
+}
+
+.btn-cancel:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: #888;
+}
+
+.btn-save {
+    background: #3E36D4;
+    color: #fff;
+    border: 1px solid #3E36D4;
+    box-shadow: 0 0 10px rgba(62, 54, 212, 0.5);
+}
+
+.btn-save:hover {
+    background: #00ffff;
+    color: #080722;
+    border-color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+.status-text {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #00ffaa;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 255, 170, 0.5);
+    animation: fadein 0.3s forwards;
+}
+
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,127 @@
+.cora-eye-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 240px;
+    height: 240px;
+    transition: all 0.5s ease-in-out, filter 0.8s ease-in-out;
+    animation: sphere-float 5s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes sphere-float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.cora-pupil {
+    transform-origin: center;
+    transition: all 0.3s ease;
+}
+
+.cora-iris-lines {
+    transform-origin: center;
+}
+
+/* =========================================
+   STATES
+   Base Eye is naturally Orange/Bronze.
+   We use hue-rotate to shift it smoothly.
+========================================= */
+
+/* IDLE: Deep Blue */
+.cora-eye-wrapper.state-idle {
+    filter: hue-rotate(210deg) brightness(0.9);
+}
+.cora-eye-wrapper.state-idle .cora-pupil {
+    animation: tiny-bounce 4s ease-in-out infinite;
+}
+.cora-eye-wrapper.state-idle .cora-iris-lines {
+    animation: slow-spin 60s linear infinite;
+}
+
+/* LISTENING: Neon Cyan Glow */
+.cora-eye-wrapper.state-listening {
+    filter: hue-rotate(150deg) brightness(1.3) drop-shadow(0 0 15px rgba(0, 255, 255, 0.6));
+    transform: scale(1.1);
+}
+.cora-eye-wrapper.state-listening .cora-pupil {
+    transform: scale(0.95);
+}
+.cora-eye-wrapper.state-listening .cora-iris-lines {
+    animation: slow-spin 30s linear infinite;
+}
+
+/* RECORDING: Bright Red Heartbeat */
+.cora-eye-wrapper.state-recording {
+    filter: hue-rotate(-30deg) brightness(1.2) drop-shadow(0 0 20px rgba(255, 0, 0, 0.5));
+}
+.cora-eye-wrapper.state-recording .cora-pupil {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+.cora-eye-wrapper.state-recording .cora-iris-lines {
+    animation: slow-spin 15s linear infinite;
+}
+
+/* THINKING & TRANSCRIBING: Magic Purple Intense Spin */
+.cora-eye-wrapper.state-thinking,
+.cora-eye-wrapper.state-transcribing {
+    filter: hue-rotate(250deg) brightness(1.2) drop-shadow(0 0 15px rgba(153, 50, 204, 0.5));
+    animation: sphere-float 5s ease-in-out infinite, vibrate 0.2s linear infinite;
+}
+.cora-eye-wrapper.state-thinking .cora-iris-lines,
+.cora-eye-wrapper.state-transcribing .cora-iris-lines {
+    animation: rapid-spin 2s linear infinite;
+}
+
+/* SPEAKING: Emerald Green Synced Pulse */
+.cora-eye-wrapper.state-speaking {
+    filter: hue-rotate(100deg) brightness(1.1) drop-shadow(0 0 15px rgba(0, 255, 100, 0.4));
+}
+.cora-eye-wrapper.state-speaking .cora-pupil {
+    animation: speaker-pulse 0.5s ease-in-out infinite alternate;
+}
+.cora-eye-wrapper.state-speaking .cora-iris-lines {
+    animation: slow-spin 20s linear infinite;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes tiny-bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(0.98); }
+}
+
+@keyframes slow-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rapid-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.05); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes vibrate {
+    0% { transform: translateY(0) translateX(0); }
+    25% { transform: translateY(-1px) translateX(1px); }
+    50% { transform: translateY(1px) translateX(-1px); }
+    75% { transform: translateY(-1px) translateX(-1px); }
+    100% { transform: translateY(0) translateX(0); }
+}
+
+@keyframes speaker-pulse {
+    0% { transform: scale(0.98); }
+    100% { transform: scale(1.05); }
+}
